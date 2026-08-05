@@ -1,0 +1,154 @@
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--pale);
+  transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  width: 18px;
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(-35deg) scale(0.7);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e8eef7;
+  --navy: #071525;
+  --blue: #6aa3ff;
+  --green: #3bd08d;
+  --red: #ff747d;
+  --muted: #9cabc0;
+  --line: #2a3b50;
+  --pale: #101c2b;
+  --white: #091523;
+  --site: #162536;
+}
+
+[data-theme="dark"] body {
+  background: var(--white);
+  color: var(--ink);
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(9, 21, 35, 0.96);
+}
+
+[data-theme="dark"] .brand,
+[data-theme="dark"] nav a:first-child {
+  color: var(--ink);
+}
+
+[data-theme="dark"] nav a {
+  color: #9cabc0;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #132438;
+  color: #f6c85f;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: #1a3047;
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: rotate(35deg) scale(0.7);
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+[data-theme="dark"] .status-strip {
+  background: #111f30;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .status-icon {
+  background: #1b3453;
+}
+
+[data-theme="dark"] .status-item.free .status-icon,
+[data-theme="dark"] .space-symbol.available {
+  background: #123a2d;
+}
+
+[data-theme="dark"] .status-item.busy .status-icon {
+  background: #41242b;
+}
+
+[data-theme="dark"] .parking-site {
+  border-color: var(--line);
+  background-image: radial-gradient(#34475a 1px, transparent 1px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .parking-space {
+  background: #142638;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .parking-space.occupied {
+  background: #2b1d27;
+}
+
+[data-theme="dark"] .road-marking span {
+  background: var(--site);
+}
+
+body,
+.site-header,
+.status-strip,
+.parking-site,
+.parking-space,
+.theme-toggle {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+@media (max-width: 470px) {
+  .header-actions {
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    width: 37px;
+    height: 37px;
+  }
+
+  .system-live {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle svg {
+    transition: none;
+  }
+}
