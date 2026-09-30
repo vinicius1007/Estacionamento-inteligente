@@ -13,7 +13,6 @@ const parkingGrid = document.querySelector("#parking-grid");
 const totalSpaces = document.querySelector("#total-spaces");
 const availableSpaces = document.querySelector("#available-spaces");
 const occupiedSpaces = document.querySelector("#occupied-spaces");
-const lastUpdate = document.querySelector("#last-update");
 const themeToggle = document.querySelector("#theme-toggle");
 
 function updateThemeButton(theme) {
@@ -83,13 +82,6 @@ function updateSummary() {
 
 }
 
-function updateTimestamp() {
-  const now = new Date();
-
-  lastUpdate.textContent = now.toLocaleTimeString("pt-BR");
-  lastUpdate.dateTime = now.toISOString();
-}
-
 function renderParkingSpaces() {
   const fragment = document.createDocumentFragment();
 
@@ -99,7 +91,6 @@ function renderParkingSpaces() {
 
   parkingGrid.replaceChildren(fragment);
   updateSummary();
-  updateTimestamp();
 }
 
 renderParkingSpaces();
